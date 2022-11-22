@@ -24,3 +24,7 @@ Route::get('encuentro', function () {
 Route::get('contact', function () {
     return view('contact');
 });
+
+Route::get('Accomplishments', function () {
+    return view('Accomplishments');
+});
