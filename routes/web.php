@@ -29,6 +29,10 @@ Route::get('contact', function () {
     return view('contact');
 });
 
+Route::get('thingsicando', function () {
+    return view('thingsicando');
+});
+
 Route::get('Accomplishments', function () {
     return view('Accomplishments');
 });
