@@ -21,6 +21,10 @@ Route::get('encuentro', function () {
     return view('encuentro');
 });
 
+Route::get('about', function () {
+    return view('about');
+});
+
 Route::get('contact', function () {
     return view('contact');
 });

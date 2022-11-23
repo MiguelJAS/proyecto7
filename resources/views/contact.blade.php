@@ -1,5 +1,8 @@
 @extends('layouts.master')
+<<<<<<< HEAD
 
+=======
+>>>>>>> about
 @section('content')
 
 <!-- Four -->

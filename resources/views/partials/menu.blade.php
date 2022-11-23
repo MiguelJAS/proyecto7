@@ -8,7 +8,7 @@
     </header>
     <nav id="nav">
         <ul>
-            <li><a href="/encuentro" class="active">About</a></li>
+            <li><a href="/about" class="active">About</a></li>
             <li><a href="#two">Things I Can Do</a></li>
             <li><a href="/Accomplishments">A Few Accomplishments</a></li>
             <li><a href="/contact">Contact</a></li>
