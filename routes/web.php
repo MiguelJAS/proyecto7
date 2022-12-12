@@ -31,19 +31,19 @@ Route::get('logout', function () {
 });
 
 Route::get('productos', function () {
-    return view('productos');
+    return view('productos.index');
 });
 
-Route::get('productos/show/{id}', function ($id) {
-    return view('productos.show', array('id => $id'));
-});
-
-Route::get('productos/create/{id}', function () {
+Route::get('productos/create', function () {
     return view('productos.create');
 });
 
+Route::get('productos/show/{id}', function ($id) {
+    return view('productos.show', ['id' => $id]);
+});
+
 Route::get('productos/edit/{id}', function ($id) {
-    return view('productos.edit', array('id => $id'));
+    return view('productos.edit', ['id' => $id]);
 });
 
 
