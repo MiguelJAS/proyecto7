@@ -19,27 +19,27 @@ Route::get('/', function () {
 });
 
 Route::get('login', function () {
-    return view('contact');
+    return view('login');
 });
 
 Route::get('logout', function () {
-    return view('Logout usuario');
+    return 'Sesion cerrada correctamente';
 });
 
 Route::get('productos', function () {
     return view('productos');
 });
 
-Route::get('productos/show/{id}', function () {
-    return view(`Vista detalle producto {id}`);
+Route::get('productos/show/{id}', function ($id) {
+    return view('productos.show', array('id => $id'));
 });
 
-Route::get('producto/create', function () {
-    return view(`Añadir producto`);
+Route::get('productos/create/{id}', function () {
+    return view('productos.create');
 });
 
-Route::get('productos/edit/{id}', function () {
-    return view(`Modificar producto {id}`);
+Route::get('productos/edit/{id}', function ($id) {
+    return view('productos.edit', array('id => $id'));
 });
 
 
