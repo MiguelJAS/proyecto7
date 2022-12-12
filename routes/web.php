@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CatalogController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,27 +13,42 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('encuentro', function () {
-    return view('encuentro');
+Route::get('/', function () {
+    return view('home');
 });
 
-Route::get('about', function () {
-    return view('about');
+
+Route::get('login', function () {
+    return view('login');
 });
 
-Route::get('contact', function () {
-    return view('contact');
+Route::get('logout', function () {
+    return 'Sesion cerrada correctamente';
 });
 
-Route::get('thingsicando', function () {
-    return view('thingsicando');
+Route::get('productos', function () {
+    return view('productos');
 });
 
-Route::get('Accomplishments', function () {
-    return view('Accomplishments');
+Route::get('productos/show/{id}', function ($id) {
+    return view('productos.show', array('id => $id'));
 });
+
+Route::get('productos/create/{id}', function () {
+    return view('productos.create');
+});
+
+Route::get('productos/edit/{id}', function ($id) {
+    return view('productos.edit', array('id => $id'));
+});
+
+
+
+
+
+
+
