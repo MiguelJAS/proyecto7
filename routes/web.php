@@ -13,10 +13,14 @@ use App\Http\Controllers\CatalogController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
 Route::get('/', function () {
     return view('home');
 });
+
 
 Route::get('login', function () {
     return view('login');

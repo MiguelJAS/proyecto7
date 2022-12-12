@@ -1,26 +1,18 @@
 <!-- Header -->
-<section id="header">
-    <header>
-        <span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
-        <h1 id="logo"><a href="#">Willis Corto</a></h1>
-        <p>I got reprogrammed by a rogue AI<br />
-        and now I'm totally cray</p>
-    </header>
-    <nav id="nav">
-        <ul>
-            <li><a href="/about" class="active">About</a></li>
-            <li><a href="#two">Things I Can Do</a></li>
-            <li><a href="/Accomplishments">A Few Accomplishments</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
-    <footer>
-        <ul class="icons">
-            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-            <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-        </ul>
-    </footer>
-</section>
+<header>
+    <div class="contenedor-navegacion">
+      <nav class="nav-principal contenedor-header">
+        <a href="#"><img src="assets/images/logoActualizado.png" id="logotipo"></a>
+        <a class="nav-principal-boton" href="index.html">Inicio</a>
+        <a class="nav-principal-boton" href="nosotros.html">Productos</a>
+        <a class="nav-principal-boton" href="http://"><i class="fa-solid fa-code"></a></i>
+        <a class="nav-principal-boton" href="blog.html">Blog</a>
+        <a class="nav-principal-boton" href="contacto.html">Contacto</a>
+        <div class="social-media">
+          <a href="https://github.com/" target="_blank"><i class="fa-brands fa-github-alt"></i></a>
+          <a href="https://www.linkedin.com/home" target="_blank"><i class="fa-brands fa-linkedin"></i>
+          <a href="https://twitter.com/?lang=es" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </nav>
+    </div>
+  </header>
