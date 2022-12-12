@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CatalogController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,21 +15,36 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get('encuentro', function () {
-    return view('encuentro');
-});
-
-Route::get('about', function () {
-    return view('about');
-});
-
-Route::get('contact', function () {
+Route::get('login', function () {
     return view('contact');
 });
 
-Route::get('Accomplishments', function () {
-    return view('Accomplishments');
+Route::get('logout', function () {
+    return view('Logout usuario');
 });
+
+Route::get('productos', function () {
+    return view('productos');
+});
+
+Route::get('productos/show/{id}', function () {
+    return view(`Vista detalle producto {id}`);
+});
+
+Route::get('producto/create', function () {
+    return view(`Añadir producto`);
+});
+
+Route::get('productos/edit/{id}', function () {
+    return view(`Modificar producto {id}`);
+});
+
+
+
+
+
+
+
