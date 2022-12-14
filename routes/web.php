@@ -17,11 +17,6 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/', function () {
-    return view('home');
-});
-
-
 Route::get('login', function () {
     return view('login');
 });
@@ -30,18 +25,14 @@ Route::get('logout', function () {
     return 'Sesion cerrada correctamente';
 });
 
-Route::get('productos', function () {
-    return view('productos.index');
-});
-
 Route::get('productos/create', function () {
     return view('productos.create');
 });
 
-Route::get('productos/show/{id}', function ($id) {
-    return view('productos.show', ['id' => $id]);
-});
-
+Route::get('/', [HomeController::class,'getHome']);
+Route::get('productos', [CatalogController::class,'getIndex']);
+Route::get('productos/show/{id}',[CatalogController::class,'getShow']);
+Route::get('/', [HomeController::class,'getHome']);
 Route::get('productos/edit/{id}', function ($id) {
     return view('productos.edit', ['id' => $id]);
 });
