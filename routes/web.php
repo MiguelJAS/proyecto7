@@ -29,13 +29,14 @@ Route::get('productos/create', function () {
     return view('productos.create');
 });
 
+
+
+
 Route::get('/', [HomeController::class,'getHome']);
 Route::get('productos', [CatalogController::class,'getIndex']);
 Route::get('productos/show/{id}',[CatalogController::class,'getShow']);
-Route::get('/', [HomeController::class,'getHome']);
-Route::get('productos/edit/{id}', function ($id) {
-    return view('productos.edit', ['id' => $id]);
-});
+Route::get('productos/edit/{id}', [CatalogController::class,'getEdit']);
+Route::get('productos/create/{id}', [CatalogController::class,'getCreate']);
 
 
 

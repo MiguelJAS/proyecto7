@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 class CatalogController extends Controller
 {
     public function getIndex(){
-
         $cuidadores = self::$arrayCuidadores;
         return view('productos.index', array('arrayCuidadores'=>$cuidadores));
     }
@@ -18,13 +17,11 @@ class CatalogController extends Controller
         return view('productos.show', array('cuidador'=>self::$arrayCuidadores[$id], 'id'=>$id));
     }
     public function getCreate(){
-        return view('catalog.create');
+        return view('productos.create');
     }
     public function getEdit($id)
     {
-        return view('catalog.edit', array(
-            'pelicula'=>$this->arrayPeliculas[$id],
-            'id' => $id));
+        return view('productos.edit', array('cuidador'=>self::$arrayCuidadores[$id], 'id'=>$id));
     }
 
 private static $arrayCuidadores = array(
