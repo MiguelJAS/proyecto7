@@ -20,7 +20,7 @@
 
                  <div class="form-group">
                      <label for="title">Apellido</label>
-                    <input type="number" name="apellido" id="apellido">
+                    <input type="text" name="apellido" id="apellido">
                  </div>
 
                  <div class="form-group">
