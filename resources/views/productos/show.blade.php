@@ -7,8 +7,8 @@
     <p>Dni: {{$cuidador['dni']}}</p>
     <p>Telefono: {{$cuidador['telefono']}}</p>
     <p>email: {{$cuidador['email']}}</p>
-    <p>Domicilio: {{$cuidador['domicilio']}}</p>
-    <p>Comunidad Autónoma: {{$cuidador['comunidad']}}</p>
-    <p>Localidad: {{$cuidador['localidad']}}</p>
+    <p>Domicilio: {{$cuidador['Domicilio']}}</p>
+    <p>Comunidad Autónoma: {{$cuidador['Comunidad']}}</p>
+    <p>Localidad: {{$cuidador['Localidad']}}</p>
 </div>
 @stop
