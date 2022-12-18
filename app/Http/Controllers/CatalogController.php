@@ -8,13 +8,14 @@ use Illuminate\Http\Request;
 class CatalogController extends Controller
 {
     public function getIndex(){
-        $cuidadores = self::$arrayCuidadores;
+        $cuidadores = Cuidador::all();
         return view('productos.index', array('arrayCuidadores'=>$cuidadores));
     }
 
     public function getShow($id)
     {
-        return view('productos.show', array('cuidador'=>self::$arrayCuidadores[$id], 'id'=>$id));
+        $cuidador = Cuidador::findOrFail($id);
+        return view('productos.show', array('cuidador'=>$cuidador, 'id'=>$id));
     }
 
     public function getCreate()
@@ -42,12 +43,27 @@ class CatalogController extends Controller
         return redirect($url);
     }
 
-
-
-
     public function getEdit($id)
     {
-        return view('productos.edit', array('cuidador'=>self::$arrayCuidadores[$id], 'id'=>$id));
+        $cuidador = Cuidador::findOrFail($id);
+        return view('productos.edit', array('cuidador'=>$cuidador, 'id'=>$id));
+    }
+
+    public function putStore($id,Request $request){
+
+        $cuidador = Cuidador::findOrFail($id);
+        $cuidador->nombre =$request->input('nombre');
+        $cuidador->apellidos =$request->input('apellidos');
+        $cuidador->dni =$request->input('dni');
+        $cuidador->telefono =$request->input('telefono');
+        $cuidador->email = $request->input('email');
+        $cuidador->Domicilio =$request->input('domicilio');
+        $cuidador->Comunidad =$request->input('comunidad');
+        $cuidador->Localidad =$request->input('localidad');
+        $cuidador->save();
+
+        $url=action([CatalogController::class, 'getShow'], ['id' => $cuidador->id]);
+        return redirect($url);
     }
 
 private static $arrayCuidadores = array(

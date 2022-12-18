@@ -14,38 +14,38 @@
                  @csrf
 
                  <div class="form-group">
-                    <label for="title">Nombre</label>
+                    <label for="nombre">Nombre</label>
                     <input type="text" name="nombre" id="nombre" class="form-control">
                  </div>
 
                  <div class="form-group">
-                     <label for="title">Apellido</label>
+                     <label for="apellidos">Apellidos</label>
                     <input type="text" name="apellido" id="apellido">
                  </div>
 
                  <div class="form-group">
-                     <label for="title">dni</label>
+                     <label for="dni">Dni</label>
                     <input type="text" name="dni" id="dni" class="form-control">
                  </div>
 
                  <div class="form-group">
-                     <label for="title">telefono</label>
+                     <label for="telefono">Telefono</label>
                     <input type="text" name="telefono" id="telefono" class="form-control">
                  </div>
                  <div class="form-group">
-                    <label for="title">email</label>
+                    <label for="email">email</label>
                    <input type="text" name="email" id="email" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="title">domicilio</label>
+                    <label for="domicilio">Domicilio</label>
                    <input type="text" name="domicilio" id="domicilio" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="title">comunidad</label>
+                    <label for="Comunidad">Comunidad</label>
                    <input type="text" name="comunidad" id="comunidad" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="title">localidad</label>
+                    <label for="Localidad">Localidad</label>
                    <input type="text" name="localidad" id="localidad" class="form-control">
                 </div>
 

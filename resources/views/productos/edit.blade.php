@@ -4,11 +4,11 @@
     <div class="offset-md-3 col-md-6">
        <div class="card">
           <div class="card-header text-center">
-             Modificar Cuidador
+             Modificar Cuidador {{$id}}
           </div>
           <div class="card-body" style="padding:30px">
 
-             <form action="{{ url('/productos/edit' . $id) }}" method="POST">
+             <form action="{{ url('/productos/edit/' . $id) }}" method="POST">
             {{method_field('PUT')}}
 
                  @csrf
@@ -20,7 +20,7 @@
 
                  <div class="form-group">
                      <label for="title">Apellidos</label>
-                    <input type="number" name="apellidos" id="apellidos" value="{{$cuidador['apellidos']}}">
+                    <input type="text" name="apellidos" id="apellidos" value="{{$cuidador['apellidos']}}">
                  </div>
 
                  <div class="form-group">
