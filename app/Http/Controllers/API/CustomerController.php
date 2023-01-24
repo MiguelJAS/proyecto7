@@ -28,7 +28,14 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $customer = json_decode($request->getContent(), true);
+        $customerData = $customer['data']['attributes'];
+        $customerData['user_id'] = $customerData['userId'];
+        unset($customerData['userId']);
+
+        $customer = Customer::create($customerData);;
+
+        return new CustomerResource($customer);
     }
 
     /**
@@ -39,7 +46,7 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //
+        return new CustomerResource($customer);
     }
 
     /**
@@ -51,7 +58,10 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        $customerData = json_decode($request->getContent(), true);
+        $customer->update($customerData['data']['attributes']);
+
+        return new CustomerResource($customer);
     }
 
     /**
@@ -62,6 +72,6 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        $customer->delete();
     }
 }
