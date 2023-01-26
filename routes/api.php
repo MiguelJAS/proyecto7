@@ -25,12 +25,12 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('customers', CustomerController::class);
-
-Route::apiResource('users', UserController::class);
 
 Route::get('artworks', [ArtworkController::class, 'index']);
 
+Route::apiResource('customers', CustomerController::class);
+
+Route::apiResource('users', UserController::class);
 
 
 Route::any('/{any}', function (ServerRequestInterface $request) {
