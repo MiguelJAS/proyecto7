@@ -29,6 +29,9 @@ Route::apiResource('customers', CustomerController::class);
 
 Route::apiResource('users', UserController::class);
 
+Route::get('artworks', [ArtworkController::class, 'index']);
+
+
 
 Route::any('/{any}', function (ServerRequestInterface $request) {
     $config = new Config([
