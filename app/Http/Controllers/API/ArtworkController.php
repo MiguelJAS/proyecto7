@@ -26,6 +26,7 @@ class ArtworkController extends Controller
         $urlConsulta = $urlEuropeanaAPI . $queryString;
         // Consultamos a la API
         $response = Http::get($urlConsulta);
-        return ArtworkResource::collection($response->collect());
+        return ArtworkResource::collection($response->collect()->toArray()['items']);
     }
 }
+

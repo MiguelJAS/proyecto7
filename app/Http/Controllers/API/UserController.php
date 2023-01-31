@@ -14,8 +14,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $numElementos = $request->input('numElements');
         return UserResource::collection(User::paginate());
     }
 
