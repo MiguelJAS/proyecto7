@@ -33,7 +33,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 Route::get('artworks', [ArtworkController::class, 'index']);
 
-Route::apiResource('customers', CustomerController::class);
+Route::apiResource('customers', CustomerController::class)->middleware('auth:sanctum');;
 
 Route::apiResource('users', UserController::class);
 
