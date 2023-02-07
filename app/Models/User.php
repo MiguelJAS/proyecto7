@@ -41,4 +41,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Método para la relación Uno a Uno con customer. Utilizamos el metodo hasOne.
+    //Devuelve el customer asociado.
+    public function customer()
+    {
+        return $this->hasOne(Customer::class, 'user_id');
+    }
 }

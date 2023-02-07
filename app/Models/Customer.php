@@ -18,4 +18,17 @@ class Customer extends Model
         'city',
         'country'
     ];
+       /**
+     * Devuelve el usuario asociado a un customer.
+     * Método belongsTo.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'customer_id');
+    }
 }
