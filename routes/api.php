@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\CustomerController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\OrderController;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Tqdev\PhpCrudApi\Api;
@@ -31,11 +32,14 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 
-Route::get('artworks', [ArtworkController::class, 'index']);
+Route::apiResource('orders', OrderController::class)->middleware('auth:sanctum');
 
-Route::apiResource('customers', CustomerController::class)->middleware('auth:sanctum');;
+Route::apiResource('customers', CustomerController::class)->middleware('auth:sanctum');
 
 Route::apiResource('users', UserController::class);
+
+Route::get('artworks', [ArtworkController::class, 'index']);
+
 
 // emite un nuevo token
 Route::post('tokens', [TokenController::class, 'store']);
