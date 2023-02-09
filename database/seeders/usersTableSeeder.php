@@ -25,10 +25,5 @@ class usersTableSeeder extends Seeder
             'password'=>bcrypt($_ENV['DATABASE_PASS'])
         ]);
 
-        User::factory(10)
-        ->has(Customer::factory()
-        ->has(Order::factory()->count(3))
-        ->count(2))
-        ->create();
     }
 }
