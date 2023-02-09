@@ -5,6 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
+
 
 class AvatarController extends Controller
 {
@@ -22,4 +25,11 @@ class AvatarController extends Controller
         $user = $request->user();
         return Storage::get($user->avatar);
     }
+
+    public function getAnyAvatar($id)
+    {
+        $user = User::findOrFail($id);
+        return Storage::get($user->avatar);
+    }
+
 }

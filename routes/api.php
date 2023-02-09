@@ -49,6 +49,8 @@ Route::delete('tokens', [TokenController::class, 'destroy'])->middleware('auth:s
 
 Route::post('/avatars', [AvatarController::class, 'store'])->middleware('auth:sanctum');
 Route::get('/avatars', [AvatarController::class, 'getAvatar'])->middleware('auth:sanctum');
+Route::get('/avatars/{id}', [AvatarController::class, 'getAnyAvatar']);
+
 
 Route::any('/{any}', function (ServerRequestInterface $request) {
     $config = new Config([
