@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\CustomerController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\OrderController;
+use App\Http\Controllers\API\AvatarController;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Tqdev\PhpCrudApi\Api;
@@ -46,6 +47,8 @@ Route::post('tokens', [TokenController::class, 'store']);
 // elimina el token del usuario autenticado
 Route::delete('tokens', [TokenController::class, 'destroy'])->middleware('auth:sanctum');
 
+Route::post('/avatars', [AvatarController::class, 'store'])->middleware('auth:sanctum');
+Route::get('/avatars', [AvatarController::class, 'getAvatar'])->middleware('auth:sanctum');
 
 Route::any('/{any}', function (ServerRequestInterface $request) {
     $config = new Config([
