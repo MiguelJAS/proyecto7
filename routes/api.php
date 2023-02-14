@@ -6,6 +6,7 @@ use App\Http\Controllers\API\CustomerController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\AvatarController;
+use App\Http\Controllers\API\CuidadorController;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Tqdev\PhpCrudApi\Api;
@@ -32,6 +33,9 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $user;
 });
 
+Route::apiResource('cuidadores', CuidadorController::class)->parameters([
+    'cuidadores' => 'cuidador'
+]);
 
 Route::apiResource('orders', OrderController::class)->middleware('auth:sanctum');
 
