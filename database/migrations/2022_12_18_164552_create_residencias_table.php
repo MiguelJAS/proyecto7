@@ -16,10 +16,12 @@ class CreateResidenciasTable extends Migration
         Schema::create('residencias', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('contacto');
+            $table->string('CIF');
             $table->integer('telefono');
-            $table->string('ubicacion');
-            $table->string('servicios');
+            $table->string('email');
+            $table->string('Direccion');
+            $table->string('Comunidad');
+            $table->string('Localidad');
             $table->timestamps();
         });
     }
