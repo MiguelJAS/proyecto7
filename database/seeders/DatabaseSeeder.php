@@ -64,6 +64,7 @@ class DatabaseSeeder extends Seeder
        Schema::enableForeignKeyConstraints();
 
        self::seedCuidadores();
+       self::seedResidencias();
        $this->command->alert('Tabla inicializada con datos');
     }
 
@@ -111,5 +112,54 @@ class DatabaseSeeder extends Seeder
             'Localidad'=>'Águilas'
         ]);
 
+    }
+    private function seedResidencias(){
+
+        DB::table('residencias')->truncate();
+        DB::table('residencias')->insert([
+            'nombre' => 'Amavir',
+            'CIF'=>'23066836K',
+            'telefono'=>'606639633',
+            'email'=>'jaimelloret66@gmail.com',
+            'Direccion'=>'Calle Laravel 21',
+            'Comunidad'=>'Region de Murcia',
+            'Localidad'=>'Cartagena'
+        ]);
+        DB::table('residencias')->insert([
+            'nombre' => 'Amavir',
+            'CIF'=>'23066836K',
+            'telefono'=>'606639633',
+            'email'=>'jaimelloret66@gmail.com',
+            'Direccion'=>'Calle Laravel 21',
+            'Comunidad'=>'Region de Murcia',
+            'Localidad'=>'Cartagena'
+        ]);
+        DB::table('residencias')->insert([
+            'nombre' => 'Amavir',
+            'CIF'=>'23066836K',
+            'telefono'=>'606639633',
+            'email'=>'jaimelloret66@gmail.com',
+            'Direccion'=>'Calle Laravel 21',
+            'Comunidad'=>'Region de Murcia',
+            'Localidad'=>'Cartagena'
+        ]);
+        DB::table('residencias')->insert([
+            'nombre' => 'Amavir',
+            'CIF'=>'23066836K',
+            'telefono'=>'606639633',
+            'email'=>'jaimelloret66@gmail.com',
+            'Direccion'=>'Calle Laravel 21',
+            'Comunidad'=>'Region de Murcia',
+            'Localidad'=>'Cartagena'
+        ]);
+        DB::table('residencias')->insert([
+            'nombre' => 'Amavir',
+            'CIF'=>'23066836K',
+            'telefono'=>'606639633',
+            'email'=>'jaimelloret66@gmail.com',
+            'Direccion'=>'Calle Laravel 21',
+            'Comunidad'=>'Region de Murcia',
+            'Localidad'=>'Cartagena'
+        ]);
     }
 }
