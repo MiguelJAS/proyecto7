@@ -20,4 +20,5 @@ Route::get('/', function () {
 Route::any('dashboard/{any?}', function () {
     return view('react');
 });
+
 require __DIR__.'/auth.php';
