@@ -23,6 +23,7 @@ class CustomerResource extends JsonResource
                 'job_title' => $this->job_title,
                 'city' => $this->city,
                 'country' => $this->country,
+                'user_id' => $this->user_id,
                 'user' => new UserResource($this->user),
                 'orders' => OrderResource::collection($this->orders)
             ]

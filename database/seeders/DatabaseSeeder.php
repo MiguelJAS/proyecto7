@@ -126,7 +126,7 @@ class DatabaseSeeder extends Seeder
             'Localidad'=>'Cartagena'
         ]);
         DB::table('residencias')->insert([
-            'nombre' => 'Amavir',
+            'nombre' => 'Clece',
             'CIF'=>'23066836K',
             'telefono'=>'606639633',
             'email'=>'jaimelloret66@gmail.com',
@@ -135,7 +135,7 @@ class DatabaseSeeder extends Seeder
             'Localidad'=>'Cartagena'
         ]);
         DB::table('residencias')->insert([
-            'nombre' => 'Amavir',
+            'nombre' => 'Santa Ana',
             'CIF'=>'23066836K',
             'telefono'=>'606639633',
             'email'=>'jaimelloret66@gmail.com',
@@ -144,7 +144,7 @@ class DatabaseSeeder extends Seeder
             'Localidad'=>'Cartagena'
         ]);
         DB::table('residencias')->insert([
-            'nombre' => 'Amavir',
+            'nombre' => 'Hola',
             'CIF'=>'23066836K',
             'telefono'=>'606639633',
             'email'=>'jaimelloret66@gmail.com',

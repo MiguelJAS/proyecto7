@@ -14,10 +14,15 @@ class CuidadorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return CuidadorResource::collection(Cuidador::paginate());
-    }
+    public function index(Request $request)
+        {
+            $numElementos = $request->input('numElements');
+
+            $registros = searchByField(array('nombre', 'apellidos', 'dni', 'telefono', 'email', 'Domicilio', 'Comunidad'), Cuidador::class);
+
+            return CuidadorResource::collection($registros->paginate($numElementos));
+           }
+
 
     /**
      * Store a newly created resource in storage.

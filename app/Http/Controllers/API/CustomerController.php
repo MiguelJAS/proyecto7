@@ -43,8 +43,6 @@ class CustomerController extends Controller
     {
         $customer = json_decode($request->getContent(), true);
         $customerData = $customer['data']['attributes'];
-        $customerData['user_id'] = $customerData['userId'];
-        unset($customerData['userId']);
 
         $customer = Customer::create($customerData);;
 
