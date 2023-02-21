@@ -15,12 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('react');
-
 });
 
 Route::any('dashboard/{any?}', function () {
     return view('react');
 });
-
 
 require __DIR__.'/auth.php';
