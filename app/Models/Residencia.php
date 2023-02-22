@@ -11,11 +11,13 @@ class Residencia extends Model
     protected $fillable = [
         'id',
         'nombre',
+        'CIF',
+        'direccion',
+        'codigo postal',
+        'localidad',
         'telefono',
         'email',
-        'Direccion',
-        'Comunidad',
-        'Localidad'
+        'tipo'
     ];
 
 }

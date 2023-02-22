@@ -17,11 +17,12 @@ class CreateResidenciasTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('CIF');
+            $table->string('direccion');
+            $table->integer('codigo postal');
+            $table->string('localidad');
             $table->integer('telefono');
             $table->string('email');
-            $table->string('Direccion');
-            $table->string('Comunidad');
-            $table->string('Localidad');
+            $table->string('tipo');
             $table->timestamps();
         });
     }

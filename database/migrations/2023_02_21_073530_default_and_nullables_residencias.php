@@ -17,11 +17,12 @@ class DefaultAndNullablesResidencias extends Migration
 
             $table->string('nombre')->default('Residencia')->change();
             $table->string('CIF')->default('-----')->change();
+            $table->string('direccion')->nullable()->change();
+            $table->integer('codigo postal')->default('30320')->change();
+            $table->string('localidad')->default('Cartagena')->change();
             $table->integer('telefono')->nullable()->change();
-            $table->string('email')->nullable()->change();
-            $table->string('Direccion')->nullable()->change();
-            $table->string('Comunidad')->nullable()->change();
-            $table->string('Localidad')->nullable()->change();
+            $table->string('email')->nullable()->unique()->change();
+            $table->string('tipo')->nullable()->change();
 
         });
     }
@@ -33,12 +34,6 @@ class DefaultAndNullablesResidencias extends Migration
      */
     public function down()
     {
-        $table->dropColumn('nombre');
-        $table->dropColumn('CIF');
-        $table->dropColumn('telefono');
-        $table->dropColumn('email');
-        $table->dropColumn('Direccion');
-        $table->dropColumn('Comunidad');
-        $table->dropColumn('Localidad');
+        Schema::dropIfExists('residencias');
     }
 }
