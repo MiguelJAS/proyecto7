@@ -20,7 +20,8 @@ class ResidenciaController extends Controller
 
         $registros = searchByField(array('nombre', 'CIF', 'telefono', 'email', 'Direccion', 'Comunidad', 'Localidad'), Residencia::class);
 
-        return ResidenciaResource::collection($registros->paginate($numElementos));    }
+        return ResidenciaResource::collection($registros->paginate($numElementos));
+       }
 
     /**
      * Store a newly created resource in storage.
