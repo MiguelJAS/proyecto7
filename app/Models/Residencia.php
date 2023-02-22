@@ -11,6 +11,7 @@ class Residencia extends Model
     protected $fillable = [
         'id',
         'nombre',
+        'CIF',
         'telefono',
         'email',
         'Direccion',
