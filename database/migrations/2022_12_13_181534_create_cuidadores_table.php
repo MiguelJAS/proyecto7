@@ -22,7 +22,8 @@ class CreateCuidadoresTable extends Migration
             $table->string('email', 65);
             $table->string('Domicilio');
             $table->string('Comunidad');
-            $table->string('Localidad');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

@@ -59,11 +59,12 @@ class DatabaseSeeder extends Seeder
             $userCustomer->roles()->attach($roleCustomer->id);
         }
 
+        //self::seedCuidadores();
 
        Model::reguard();
        Schema::enableForeignKeyConstraints();
 
-       self::seedCuidadores();
+
        self::seedResidencias();
        $this->command->alert('Tabla inicializada con datos');
     }
@@ -79,7 +80,7 @@ class DatabaseSeeder extends Seeder
             'email'=>'jaimelloret66@gmail.com',
             'Domicilio'=>'Calle Laravel 21',
             'Comunidad'=>'Region de Murcia',
-            'Localidad'=>'Cartagena'
+
         ]);
         DB::table('cuidadores')->insert([
             'nombre' => 'Pedro',
@@ -89,7 +90,7 @@ class DatabaseSeeder extends Seeder
             'email'=>'pedro@gmail.com',
             'Domicilio'=>'Calle Laravel 25',
             'Comunidad'=>'Region de Murcia',
-            'Localidad'=>'Lorca'
+
         ]);
         DB::table('cuidadores')->insert([
             'nombre' => 'LUis',
@@ -99,7 +100,7 @@ class DatabaseSeeder extends Seeder
             'email'=>'Luis@gmail.com',
             'Domicilio'=>'Calle PHP 21',
             'Comunidad'=>'Cataluña',
-            'Localidad'=>'Tarragona'
+
         ]);
         DB::table('cuidadores')->insert([
             'nombre' => 'Manuel',
@@ -109,7 +110,7 @@ class DatabaseSeeder extends Seeder
             'email'=>'elpayaso@gmail.com',
             'Domicilio'=>'Calle Circo 25',
             'Comunidad'=>'Region de Murcia',
-            'Localidad'=>'Águilas'
+
         ]);
 
     }
