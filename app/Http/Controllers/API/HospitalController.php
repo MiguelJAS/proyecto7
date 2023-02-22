@@ -10,24 +10,21 @@ use App\Http\Resources\HospitalResource;
 
 class HospitalController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
 // Inicialmente, vamos a utilizar un autor constante
-    //$municipio = $request->input('filter') ? $request->input('filter')['q'] : 'Murcia';
-
-    //$municipio = 'Lorca';
+    //$datos = $request->input('filter') ? $request->input('filter')['q'] : 'Murcia';
+    //$municipio = http_build_query($datos);
 // La key la cogeremos de las variables de entorno
-    $urlHospitalesAPI="https://datosabiertos.regiondemurcia.es/catalogo/api/action//datastore_search_sql?sql
-    =SELECT%20*%20from%20%228c7c36a0-98f6-4fc1-817a-0887ad292ab8%22%20WHERE%20%22Municipio%22%20LIKE%20%27%Segura%%27";
+    $urlHospitalesAPI="https://datosabiertos.regiondemurcia.es/catalogo/api/action//datastore_search_sql?sql=SELECT%20*%20from%20%228c7c36a0-98f6-4fc1-817a-0887ad292ab8%22%20WHERE%20%22Municipio%22%20LIKE%20%27%Murcia%%27";
 
-    //$queryString = "WHERE%20%22Municipio%22%20LIKE%20%27%Caravaca%27";
-    //$urlConsulta = $urlHospitalesAPI . $queryString;
+
     // Consultamos a la API
     $response = Http::get($urlHospitalesAPI);
     $decodificado = json_decode($response, true);
-
+    $results = $decodificado['result']['records'];
     //return HospitalResource::collection($decodificado->collect()->toArray()['items']);
 
-    return HospitalResource::collection($decodificado);
+    return HospitalResource::collection($results);
     }
 }
