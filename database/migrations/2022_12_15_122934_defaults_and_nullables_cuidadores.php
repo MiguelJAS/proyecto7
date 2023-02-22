@@ -22,7 +22,6 @@ class DefaultsAndNullablesCuidadores extends Migration
             $table->string('email', 65)->nullable()->change();
             $table->string('Domicilio')->nullable()->change();
             $table->string('Comunidad')->nullable()->change();
-            $table->string('Localidad')->nullable()->change();
         });
     }
 
@@ -42,7 +41,6 @@ class DefaultsAndNullablesCuidadores extends Migration
             $table->dropColumn('email', 65);
             $table->dropColumn('Domicilio');
             $table->dropColumn('Comunidad');
-            $table->dropColumn('Localidad');
 
         });
     }

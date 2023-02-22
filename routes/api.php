@@ -13,6 +13,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Tqdev\PhpCrudApi\Api;
 use Tqdev\PhpCrudApi\Config\Config;
 use App\Http\Controllers\API\ArtworkController;
+use App\Http\Controllers\API\HospitalController;
 use App\Http\Controllers\API\TokenController;
 
 
@@ -47,6 +48,8 @@ Route::apiResource('customers', CustomerController::class)->middleware('auth:san
 Route::apiResource('users', UserController::class);
 
 Route::get('artworks', [ArtworkController::class, 'index']);
+
+Route::get('hospitales', [HospitalController::class, 'index']);
 
 
 // emite un nuevo token
