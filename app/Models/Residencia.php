@@ -12,11 +12,12 @@ class Residencia extends Model
         'id',
         'nombre',
         'CIF',
+        'direccion',
+        'cp',
+        'localidad',
         'telefono',
         'email',
-        'Direccion',
-        'Comunidad',
-        'Localidad'
+        'tipo'
     ];
 
 }
