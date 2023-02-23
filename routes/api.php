@@ -38,7 +38,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 Route::apiResource('cuidadores', CuidadorController::class)->parameters([
     'cuidadores' => 'cuidador'
-]);
+])->middleware('auth:sanctum');
 
 Route::apiResource('residencias', ResidenciaController::class);
 

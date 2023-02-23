@@ -9,11 +9,16 @@ use App\Http\Resources\CuidadorResource;
 
 class CuidadorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
+        /**
+     * Create the controller instance.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
+    public function __construct()
+    {
+        $this->authorizeResource(Cuidador::class, 'cuidador');
+    }
+
     public function index(Request $request)
         {
             $numElementos = $request->input('numElements');
@@ -32,9 +37,33 @@ class CuidadorController extends Controller
      */
     public function store(Request $request)
     {
-        $cuidador = json_decode($request->getContent(), true);
+        //Recupero el usuario
+        $user = auth()->user();
+        $input = json_decode($request->getContent(), true);
 
-        $cuidador = Cuidador::create($cuidador['data']['attributes']);
+        //Si la id del usuario es 1(que pertenece al usuario administrador) hacemos un create normal
+        if($user->id == 1){
+
+        $cuidador = Cuidador::create($input['data']['attributes']);
+        //Sin embargo, si el usuario no es el administrador, al crear un cuidador, se le asignará como usuario
+        //los datos del usuario autenticado. Esto evita que los usuarios normales puedan crear cuidadores asociados a otros usuarios.
+        //El resto de métodos quedarán protegidos por una policy.
+
+        }else{
+
+         $cuidador = new Cuidador([
+            'nombre' => $input['data']['attributes']['nombre'],
+            'apellidos' => $input['data']['attributes']['apellidos'],
+            'dni' => $input['data']['attributes']['dni'],
+            'telefono' => $input['data']['attributes']['telefono'],
+            'email' => $input['data']['attributes']['email'],
+            'Domicilio' => $input['data']['attributes']['Domicilio'],
+            'Comunidad' =>$input['data']['attributes']['Comunidad'],
+            'user_id' => $request->user()->id,
+            'user' => $request->user()->user
+         ]);
+         $cuidador->save();
+        }
 
         return new CuidadorResource($cuidador);
     }
