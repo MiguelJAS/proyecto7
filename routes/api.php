@@ -8,6 +8,7 @@ use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\AvatarController;
 use App\Http\Controllers\API\CuidadorController;
 use App\Http\Controllers\API\ResidenciaController;
+use App\Http\Controllers\API\TarifaController;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Tqdev\PhpCrudApi\Api;
@@ -40,6 +41,8 @@ Route::apiResource('cuidadores', CuidadorController::class)->parameters([
 ]);
 
 Route::apiResource('residencias', ResidenciaController::class);
+
+Route::apiResource('tarifas', TarifaController::class);
 
 Route::apiResource('orders', OrderController::class)->middleware('auth:sanctum');
 

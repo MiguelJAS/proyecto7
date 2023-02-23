@@ -59,13 +59,15 @@ class DatabaseSeeder extends Seeder
             $userCustomer->roles()->attach($roleCustomer->id);
         }
 
-        //self::seedCuidadores();
+       //self::seedCuidadores();
 
        Model::reguard();
        Schema::enableForeignKeyConstraints();
 
-
        self::seedResidencias();
+       $this->command->alert('Tabla inicializada con datos');
+
+       self::seedTarifas();
        $this->command->alert('Tabla inicializada con datos');
     }
 
@@ -113,6 +115,15 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+    }
+    private function seedTarifas(){
+
+        DB::table('tarifas')->truncate();
+        DB::table('tarifas')->insert([
+            'minima' => '15/€',
+            'general' =>'20/€',
+            'especial'=>'30/€'
+        ]);
     }
     private function seedResidencias(){
 
@@ -237,7 +248,5 @@ class DatabaseSeeder extends Seeder
             'email'=>'virgendelmar@gmail.com',
             'tipo'=>'Concertado',
         ]);
-
-
     }
 }
