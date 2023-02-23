@@ -26,4 +26,9 @@ class Cuidador extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function customers()
+    {
+        return $this->belongsToMany(Customer::class, 'contratos', 'cuidador_id', 'customer_id');
+    }
 }

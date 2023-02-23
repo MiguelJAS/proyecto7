@@ -13,10 +13,12 @@ class HospitalController extends Controller
     public function index(Request $request)
     {
 // Inicialmente, vamos a utilizar un autor constante
-    //$datos = $request->input('filter') ? $request->input('filter')['q'] : 'Murcia';
-    //$municipio = http_build_query($datos);
+    $datos = $request->input('filter') ? $request->input('filter')['q'] : '';
+    $municipio = preg_replace('([^A-Za-z0-9])', '', $datos);
+
 // La key la cogeremos de las variables de entorno
-    $urlHospitalesAPI="https://datosabiertos.regiondemurcia.es/catalogo/api/action//datastore_search_sql?sql=SELECT%20*%20from%20%228c7c36a0-98f6-4fc1-817a-0887ad292ab8%22%20WHERE%20%22Municipio%22%20LIKE%20%27%Murcia%%27";
+
+    $urlHospitalesAPI="https://datosabiertos.regiondemurcia.es/catalogo/api/action//datastore_search_sql?sql=SELECT%20*%20from%20%228c7c36a0-98f6-4fc1-817a-0887ad292ab8%22%20WHERE%20%22Municipio%22%20LIKE%20%27%".$municipio."%%27";
 
 
     // Consultamos a la API

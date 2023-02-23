@@ -17,7 +17,7 @@ class CreateCuidadoresTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('apellidos');
-            $table->string('dni', 9);
+            $table->string('dni', 9)->unique();
             $table->integer('telefono');
             $table->string('email', 65);
             $table->string('Domicilio');

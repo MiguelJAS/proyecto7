@@ -31,4 +31,9 @@ class Customer extends Model
     {
         return $this->hasMany(Order::class, 'customer_id');
     }
+
+    public function cuidadores()
+    {
+        return $this->belongsToMany(Customer::class, 'contratos', 'customer_id', 'cuidador_id');
+    }
 }
