@@ -18,7 +18,7 @@ class ResidenciaController extends Controller
     {
         $numElementos = $request->input('numElements');
 
-        $registros = searchByField(array('nombre', 'CIF', 'telefono', 'email', 'Direccion', 'Comunidad', 'Localidad'), Residencia::class);
+        $registros = searchByField(array('nombre', 'CIF','direccion','cp', 'localidad', 'telefono', 'email', 'tipo' ), Residencia::class);
 
         return ResidenciaResource::collection($registros->paginate($numElementos));
        }
