@@ -49,15 +49,17 @@ class DatabaseSeeder extends Seeder
 
          $userAdmin->roles()->attach($roleAdmin->id);
 
-        $userCustomers = User::factory(10)
-        ->has(Customer::factory()
-        ->has(Order::factory()->count(3))
-        ->count(1))
-        ->create();
+        $userCustomers = User::factory(5)->has(Customer::factory()->count(1))->create();
+        //userCuidadors = User::factory(5)->has(Cuidador::factory()->count(1))->create();
 
         foreach ($userCustomers as $userCustomer) {
             $userCustomer->roles()->attach($roleCustomer->id);
         }
+
+        // foreach ($userCuidadores as $userCuidadores) {
+        //     $userCuidadores->roles()->attach($roleCustomer->id);
+        // }
+
 
        //self::seedCuidadores();
 

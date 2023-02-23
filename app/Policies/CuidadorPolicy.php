@@ -2,25 +2,13 @@
 
 namespace App\Policies;
 
-use App\Models\Customer;
+use App\Models\Cuidador;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class CustomerPolicy
+class CuidadorPolicy
 {
     use HandlesAuthorization;
-        /**
-     * Perform pre-authorization checks.
-     *
-     * @param  \App\Models\User  $user
-     * @param  string  $ability
-     * @return void|bool
-     */
-    public function before(User $user, $ability)
-    {
-        if($user->id===1) return true;
-    }
-
 
     /**
      * Determine whether the user can view any models.
@@ -28,6 +16,12 @@ class CustomerPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
+
+    public function before(User $user, $ability)
+    {
+        if($user->id===1) return true;
+    }
+
     public function viewAny(User $user)
     {
         return true;
@@ -37,12 +31,12 @@ class CustomerPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Cuidador  $cuidador
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Customer $customer)
+    public function view(User $user, Cuidador $cuidador)
     {
-        return $user->id === $customer->user_id;
+        return $user->id === $cuidador->user_id;
     }
 
     /**
@@ -53,29 +47,29 @@ class CustomerPolicy
      */
     public function create(User $user)
     {
-        //return $user->id === 1;
+        //
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Cuidador  $cuidador
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Customer $customer)
+    public function update(User $user, Cuidador $cuidador)
     {
-        return $user->id === $customer->user_id;
+        return $user->id === $cuidador->user_id;
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Cuidador  $cuidador
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Customer $customer)
+    public function delete(User $user, Cuidador $cuidador)
     {
         //
     }
@@ -84,10 +78,10 @@ class CustomerPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Cuidador  $cuidador
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Customer $customer)
+    public function restore(User $user, Cuidador $cuidador)
     {
         //
     }
@@ -96,10 +90,10 @@ class CustomerPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Cuidador  $cuidador
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Customer $customer)
+    public function forceDelete(User $user, Cuidador $cuidador)
     {
         //
     }
