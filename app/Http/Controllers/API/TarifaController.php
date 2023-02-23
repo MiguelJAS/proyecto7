@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Tarifa;
 use Illuminate\Http\Request;
-use App\Http\Resources\TarifaResources;
+use App\Http\Resources\TarifaResource;
 
 class TarifaController extends Controller
 {
@@ -14,11 +14,11 @@ class TarifaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $numElementos = $request->input('numElements');
 
-        $registros = searchByField(array('minima', 'general','especial'), Tarifa::class);
+        $registros = searchByField(array('nombre', 'precio','extras'), Tarifa::class);
 
         return TarifaResource::collection($registros->paginate($numElementos));
     }

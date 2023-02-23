@@ -120,9 +120,24 @@ class DatabaseSeeder extends Seeder
 
         DB::table('tarifas')->truncate();
         DB::table('tarifas')->insert([
-            'minima' => '15/€',
-            'general' =>'20/€',
-            'especial'=>'30/€'
+            'nombre' => 'Diaria',
+            'precio' =>'15€/h',
+            'extras'=>'no'
+        ]);
+        DB::table('tarifas')->insert([
+            'nombre' => 'Fines de semana',
+            'precio' =>'18€/h',
+            'extras'=>'no'
+        ]);
+        DB::table('tarifas')->insert([
+            'nombre' => 'Mensual',
+            'precio' =>'12€/h',
+            'extras'=>'si'
+        ]);
+        DB::table('tarifas')->insert([
+            'nombre' => 'Personalizada',
+            'precio' =>'30€/h',
+            'extras'=>'si'
         ]);
     }
     private function seedResidencias(){

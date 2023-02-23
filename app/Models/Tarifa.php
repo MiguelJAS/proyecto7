@@ -10,8 +10,8 @@ class Tarifa extends Model
     use HasFactory;
     protected $fillable = [
         'id',
-        'minima',
-        'general',
-        'especial'
+        'nombre',
+        'precio',
+        'extras'
     ];
 }
