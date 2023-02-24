@@ -16,7 +16,13 @@ class TarifaResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'attributes' => parent::toArray($request)
+            'attributes' => [
+                'diurna' => $this->diurna,
+                'nocturna' => $this->nocturna,
+                'festivos' => $this->festivos,
+                'personalizada' => $this->personalizada,
+                //'cuidador' => new CuidadorResource($this->cuidador)
+            ]
         ];
     }
 }
