@@ -18,7 +18,7 @@ class TarifaController extends Controller
     {
         $numElementos = $request->input('numElements');
 
-        $registros = searchByField(array('nombre', 'precio','extras'), Tarifa::class);
+        $registros = searchByField(array('diurna', 'nocturna','festivos', 'personalizada'), Tarifa::class);
 
         return TarifaResource::collection($registros->paginate($numElementos));
     }
@@ -62,7 +62,7 @@ class TarifaController extends Controller
         $tarifaData['data']['attributes']['id'] = $tarifaData['data']['id'];
         $resultado = $tarifa->update($tarifaData['data']['attributes']);
 
-        return new ResidenciaResource($tarifa);
+        return new TarifaResource($tarifa);
     }
 
     /**

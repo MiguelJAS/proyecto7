@@ -10,8 +10,15 @@ class Tarifa extends Model
     use HasFactory;
     protected $fillable = [
         'id',
-        'nombre',
-        'precio',
-        'extras'
+        'cuidador_id',
+        'diurna',
+        'nocturna',
+        'festivos',
+        'personalizada'
     ];
+
+    public function cuidador()
+    {
+        return $this->hasOne(Cuidador::class);
+    }
 }

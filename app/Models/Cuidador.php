@@ -31,4 +31,8 @@ class Cuidador extends Model
     {
         return $this->belongsToMany(Customer::class, 'contratos', 'cuidador_id', 'customer_id');
     }
+    public function tarifas()
+    {
+        return $this->belongsTo(Tarifa::class);
+    }
 }

@@ -69,7 +69,7 @@ class DatabaseSeeder extends Seeder
        self::seedResidencias();
        $this->command->alert('Tabla inicializada con datos');
 
-       self::seedTarifas();
+       //self::seedTarifas();
        $this->command->alert('Tabla inicializada con datos');
     }
 
@@ -118,30 +118,24 @@ class DatabaseSeeder extends Seeder
         ]);
 
     }
-    private function seedTarifas(){
+    /*private function seedTarifas(){
 
         DB::table('tarifas')->truncate();
         DB::table('tarifas')->insert([
-            'nombre' => 'Diaria',
-            'precio' =>'15€/h',
-            'extras'=>'no'
+            'Diurna' => '50',
+            'Nocturna' =>'150',
+            'Festivos'=>'200',
+            'Personalizada'=>'250',
+            'cuidador_id'=>'1'
         ]);
         DB::table('tarifas')->insert([
-            'nombre' => 'Fines de semana',
-            'precio' =>'18€/h',
-            'extras'=>'no'
+            'Diurna' => '50',
+            'Nocturna' =>'100',
+            'Festivos'=>'120',
+            'Personalizada'=>'180',
+            'cuidador_id'=>'2'
         ]);
-        DB::table('tarifas')->insert([
-            'nombre' => 'Mensual',
-            'precio' =>'12€/h',
-            'extras'=>'si'
-        ]);
-        DB::table('tarifas')->insert([
-            'nombre' => 'Personalizada',
-            'precio' =>'30€/h',
-            'extras'=>'si'
-        ]);
-    }
+    }*/
     private function seedResidencias(){
 
         DB::table('residencias')->truncate();
