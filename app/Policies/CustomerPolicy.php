@@ -53,7 +53,7 @@ class CustomerPolicy
      */
     public function create(User $user)
     {
-        return ($user->isAdmin() || $user->isEditor());
+        return $user->isAdmin();
     }
 
     /**
@@ -65,7 +65,7 @@ class CustomerPolicy
      */
     public function update(User $user, Customer $customer)
     {
-        return $user->id === $customer->user_id;
+        return $user->isAdmin();
     }
 
     /**
