@@ -37,33 +37,11 @@ class CuidadorController extends Controller
      */
     public function store(Request $request)
     {
-        //Recupero el usuario
-        $user = auth()->user();
-        $input = json_decode($request->getContent(), true);
 
-        //Si la id del usuario es 1(que pertenece al usuario administrador) hacemos un create normal
-        if($user->id == 1){
+        $cuidador = json_decode($request->getContent(), true);
+        $cuidadorData = $cuidador['data']['attributes'];
 
-        $cuidador = Cuidador::create($input['data']['attributes']);
-        //Sin embargo, si el usuario no es el administrador, al crear un cuidador, se le asignará como usuario
-        //los datos del usuario autenticado. Esto evita que los usuarios normales puedan crear cuidadores asociados a otros usuarios.
-        //El resto de métodos quedarán protegidos por una policy.
-
-        }else{
-
-         $cuidador = new Cuidador([
-            'nombre' => $input['data']['attributes']['nombre'],
-            'apellidos' => $input['data']['attributes']['apellidos'],
-            'dni' => $input['data']['attributes']['dni'],
-            'telefono' => $input['data']['attributes']['telefono'],
-            'email' => $input['data']['attributes']['email'],
-            'Domicilio' => $input['data']['attributes']['Domicilio'],
-            'Comunidad' =>$input['data']['attributes']['Comunidad'],
-            'user_id' => $request->user()->id,
-            'user' => $request->user()->user
-         ]);
-         $cuidador->save();
-        }
+        $cuidador = Cuidador::create($cuidadorData);;
 
         return new CuidadorResource($cuidador);
     }
