@@ -6,6 +6,7 @@ use App\Models\Customer;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\Role;
+use App\Models\Cuidador;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
@@ -31,6 +32,7 @@ class DatabaseSeeder extends Seeder
        DB::table('users')->truncate();
        DB::table('roles')->truncate();
        DB::table('role_user')->truncate();
+       DB::table('cuidadores')->truncate();
 
         $userAdmin = User::create([
             'name' => env('DATABASE_ADMIN'),
@@ -47,18 +49,19 @@ class DatabaseSeeder extends Seeder
             'name' => 'Customer'
         ]);
 
-         $userAdmin->roles()->attach($roleAdmin->id);
+        $userAdmin->roles()->attach($roleAdmin->id);
+
+        $userCuidadores = User::factory(5)->has(Cuidador::factory()->count(1))->create();
 
         $userCustomers = User::factory(5)->has(Customer::factory()->count(1))->create();
-        //userCuidadors = User::factory(5)->has(Cuidador::factory()->count(1))->create();
 
         foreach ($userCustomers as $userCustomer) {
             $userCustomer->roles()->attach($roleCustomer->id);
         }
 
-        // foreach ($userCuidadores as $userCuidadores) {
-        //     $userCuidadores->roles()->attach($roleCustomer->id);
-        // }
+        foreach ($userCuidadores as $userCuidador) {
+            $userCuidador->roles()->attach($roleCustomer->id);
+        }
 
 
        //self::seedCuidadores();

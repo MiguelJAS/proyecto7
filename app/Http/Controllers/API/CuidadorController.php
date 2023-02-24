@@ -88,6 +88,7 @@ class CuidadorController extends Controller
      */
     public function update(Request $request, Cuidador $cuidador)
     {
+
         $cuidadorData = json_decode($request->getContent(), true);
         $cuidadorData['data']['attributes']['id'] = $cuidadorData['data']['id'];
         $resultado = $cuidador->update($cuidadorData['data']['attributes']);
