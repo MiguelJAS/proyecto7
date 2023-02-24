@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('react');
+    return view('reactFinal');
 });
 
 Route::any('dashboard/{any?}', function () {
-    return view('react');
+    return view('reactFinal');
 });
 
 require __DIR__.'/auth.php';
