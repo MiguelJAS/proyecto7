@@ -53,7 +53,7 @@ class CustomerPolicy
      */
     public function create(User $user)
     {
-        //return $user->id === 1;
+        return ($user->isAdmin() || $user->isEditor());
     }
 
     /**

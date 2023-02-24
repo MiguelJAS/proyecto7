@@ -40,19 +40,17 @@ Route::apiResource('cuidadores', CuidadorController::class)->parameters([
     'cuidadores' => 'cuidador'
 ])->middleware('auth:sanctum');
 
-Route::apiResource('residencias', ResidenciaController::class);
+Route::apiResource('residencias', ResidenciaController::class)->middleware('auth:sanctum');
 
-Route::apiResource('tarifas', TarifaController::class);
+Route::apiResource('tarifas', TarifaController::class)->middleware('auth:sanctum');
 
 Route::apiResource('orders', OrderController::class)->middleware('auth:sanctum');
 
 Route::apiResource('customers', CustomerController::class)->middleware('auth:sanctum');
 
-Route::apiResource('users', UserController::class);
+Route::apiResource('users', UserController::class)->middleware('auth:sanctum');
 
-Route::get('artworks', [ArtworkController::class, 'index']);
-
-Route::get('hospitales', [HospitalController::class, 'index']);
+Route::get('hospitales', [HospitalController::class, 'index'])->middleware('auth:sanctum');
 
 
 // emite un nuevo token

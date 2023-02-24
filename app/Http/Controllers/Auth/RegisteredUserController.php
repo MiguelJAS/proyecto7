@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,6 +36,10 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
+
+        //Para asignar un rol por defecto al usuario que creamos
+        $rol = Role::where('name','Customer')->first();
+        $user->roles()->attach($rol->id);
 
         Auth::login($user);
 

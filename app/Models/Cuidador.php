@@ -33,6 +33,6 @@ class Cuidador extends Model
     }
     public function tarifas()
     {
-        return $this->belongsTo(Tarifa::class);
+        return $this->hasOne(Tarifa::class);
     }
 }

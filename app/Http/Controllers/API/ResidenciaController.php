@@ -9,11 +9,18 @@ use App\Http\Resources\ResidenciaResource;
 
 class ResidenciaController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->authorizeResource(Residencia::class, 'residencia');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index(Request $request)
     {
         $numElementos = $request->input('numElements');
