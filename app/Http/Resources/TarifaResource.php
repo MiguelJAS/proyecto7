@@ -21,6 +21,7 @@ class TarifaResource extends JsonResource
                 'nocturna' => $this->nocturna,
                 'festivos' => $this->festivos,
                 'personalizada' => $this->personalizada,
+                'cuidador_id' => $this->cuidador_id
                 //'cuidador' => new CuidadorResource($this->cuidador)
             ]
         ];

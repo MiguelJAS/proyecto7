@@ -19,6 +19,6 @@ class Tarifa extends Model
 
     public function cuidador()
     {
-        return $this->hasOne(Cuidador::class);
+        return $this->belongsTo(Cuidador::class, 'cuidador_id');
     }
 }

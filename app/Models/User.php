@@ -70,4 +70,16 @@ class User extends Authenticatable
         }
         return $isAdmin;
     }
+
+    public function isEditor(){
+
+        $roles = $this->roles;
+        $isEditor = false;
+        foreach ($roles as $role){
+            if($role->name == 'Editor'){
+                $isEditor = true;
+            }
+        }
+        return $isEditor;
+    }
 }

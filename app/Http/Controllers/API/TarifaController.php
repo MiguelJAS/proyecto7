@@ -9,6 +9,12 @@ use App\Http\Resources\TarifaResource;
 
 class TarifaController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->authorizeResource(Tarifa::class, 'tarifa');
+    }
     /**
      * Display a listing of the resource.
      *

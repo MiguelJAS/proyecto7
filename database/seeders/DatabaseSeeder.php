@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Role;
 use App\Models\Cuidador;
+use App\Models\Tarifa;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
@@ -49,14 +50,26 @@ class DatabaseSeeder extends Seeder
             'name' => 'Customer'
         ]);
 
+        $rolEditor = Role::create([
+            'name' => 'Editor'
+        ]);
+
         $userAdmin->roles()->attach($roleAdmin->id);
 
-        $userCuidadores = User::factory(5)->has(Cuidador::factory()->count(1))->create();
+
+        $userEditores = User::factory(3)->create();
+
+        $userCuidadores = User::factory(5)->has(Cuidador::factory()->count(1)->has(Tarifa::factory()->count(1)))->create();
 
         $userCustomers = User::factory(5)->has(Customer::factory()->count(1))->create();
 
+
         foreach ($userCustomers as $userCustomer) {
             $userCustomer->roles()->attach($roleCustomer->id);
+        }
+
+        foreach ($userEditores as $userEditor) {
+            $userEditor->roles()->attach($rolEditor->id);
         }
 
         foreach ($userCuidadores as $userCuidador) {
